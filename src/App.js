@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import WebinarCall from './views/WebinarCall'
+import RoomList from './views/RoomList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AppContainer>
+        <Switch>
+          <Route path='/' component={RoomList} exact />
+          <Route path='/rooms/:id' component={WebinarCall} exact />
+        </Switch>
+
+      </AppContainer>
+    </BrowserRouter>
   );
 }
+
+
+const AppContainer = styled.div`
+ width: 100vw;
+ height: 100vh;
+ background-color: ghostwhite;
+`;
 
 export default App;
