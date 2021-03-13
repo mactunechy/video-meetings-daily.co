@@ -36,7 +36,7 @@ const RoomList = () => {
     e.preventDefault();
     if (name.trim().length === 0) return;
     setLoading(true);
-    createRoom({ name: camelCase(name), owner_only_broadcast: true })
+    createRoom({ name: camelCase(name)})
       .then((data) => {
         console.log(data);
         setName("");
